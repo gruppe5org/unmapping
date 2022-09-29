@@ -8,7 +8,7 @@ const state = {
   devices: {}
 }
 
-const devices = []
+const devices = ["https://www.finder-portal.com/viewmode_101893_c9d7a52741ca2d8c413b5f8406ab844656a2a153.html"]
 
 const app = express()
 
@@ -75,7 +75,6 @@ async function update () {
 
 async function init () {
   setInterval(update, 30 * 1000)
-  setInterval(store, 2 * 60 * 60 * 1000)
   await update()
 }
 
