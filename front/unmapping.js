@@ -13,6 +13,23 @@ async function getData () {
   return json
 }
 
+function placeUi () {
+  const maps = [...document.querySelectorAll('.map')]
+
+  maps.forEach((map) => {
+    const popUp = document.createElement('div')
+    popUp.className = 'pop-up'
+    
+    const button = document.createElement('button')
+    button.addEventListener('click', (event) => {
+      event.target.parentNode.querySelector('.pop-up').classList.toggle('open')
+    })
+
+    map.appendChild(button)
+    map.appendChild(popUp)
+  })
+}
+
 function placeMap (id) {
   const div = document.createElement('div')
   div.id = `map-${id}`
@@ -48,6 +65,7 @@ function placeMaps () {
 async function init () {
   await updateData()
   placeMaps()
+  placeUi()
 }
 
 init()

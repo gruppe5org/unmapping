@@ -95,7 +95,7 @@ async function update () {
 }
 
 async function init () {
-  setInterval(update, 30 * 1000)
+  setInterval(update, 60 * 1000)
   await update()
 }
 
