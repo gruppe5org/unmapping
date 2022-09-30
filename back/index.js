@@ -2,15 +2,26 @@ require('dotenv').config()
 const path = require('path')
 const fetch = require('node-fetch')
 const express = require('express')
+const cors = require('cors')
 
 const state = {
   lastUpdate: Date.now(),
   devices: {}
 }
 
-const devices = ["https://www.finder-portal.com/viewmode_101893_c9d7a52741ca2d8c413b5f8406ab844656a2a153.html"]
+const devices = [{
+  url: 'https://www.finder-portal.com/viewmode_101893_c9d7a52741ca2d8c413b5f8406ab844656a2a153.html',
+  dropoff: 1
+}, {
+  url: 'https://www.finder-portal.com/viewmode_158656_35389e7d8b92ad447d45b5e2bafca0acf41dbb3f.html',
+  dropoff: 1
+}, {
+  url: 'https://www.finder-portal.com/viewmode_159742_34a6ced3c7054db5e903cfffb1a48c1cf482e0a7.html',
+  dropoff: 1
+}]
 
 const app = express()
+app.use(cors())
 
 app.get('/api', (req, res) => {
   res.setHeader('Content-Type', 'application/json')
@@ -45,10 +56,10 @@ async function getAllRoutes(id, cookie) {
 }
 
 async function fetchDevices () {
-  state.devices = await devices.reduce(async (prevDevices, url) => {
+  state.devices = await devices.reduce(async (prevDevices, device) => {
     const devices = await prevDevices
-    const id = url.match(/\d+/)[0]
-    const cookie = await getCookie(url)
+    const id = device.url.match(/\d+/)[0]
+    const cookie = await getCookie(device.url)
     const routes = await getAllRoutes(id, cookie)
 
     if (!state.devices[id]) {
@@ -58,6 +69,12 @@ async function fetchDevices () {
     }
 
     devices[id].routes = routes
+      .filter((point, i) => i % 6 === 0)
+      .slice(0, -device.dropoff)
+    console.log(id, devices[id].routes.length)
+    return devices
+  
+    devices[id].routes = routes
     return devices
   }, {})
 
@@ -65,7 +82,11 @@ async function fetchDevices () {
 }
 
 async function update () {
-  await fetchDevices()
+  try {
+    await fetchDevices()
+  } catch (error) {
+    console.log(error)
+  }
   
   state.lastUpdate = Date.now()
   console.log(`${state.lastUpdate} devices updated`)
