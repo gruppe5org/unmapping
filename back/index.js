@@ -23,6 +23,7 @@ const devices = [{
 const app = express()
 app.use(cors())
 
+app.use('/', express.static(path.join(__dirname, '../front')))
 app.get('/api', (req, res) => {
   res.setHeader('Content-Type', 'application/json')
   res.send(JSON.stringify(state, null, 2))

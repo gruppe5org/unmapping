@@ -8,7 +8,7 @@ async function updateData () {
 }
 
 async function getData () {
-  const response = await fetch('http://localhost:2228/api')
+  const response = await fetch('/api')
   const json = await response.json()
   return json
 }
