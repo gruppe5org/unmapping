@@ -21,7 +21,8 @@ main {
   grid-template-columns: repeat(2, 1fr);
 }
 
-.map {
+section {
+  position: relative;
   width: 50vw;
   height: 50vh;
 }
@@ -40,17 +41,31 @@ button {
   cursor: pointer;
 }
 
+.map {
+  width: 100%;
+  height: 100%;
+}
+
 .pop-up {
   display: none;
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   z-index: 99998;
+  padding: 1em 1em 3em 1em;
   background: blue;
   font-size: medium;
   color:white;
+  overflow-y: auto;
 }
 
 .pop-up.open {
   display: block;
+}
+
+.pop-up .title {
+  margin: 0 0 0.5em 0;
+  font-weight: bold;
 }

@@ -2,17 +2,14 @@ let data = {}
 let maps = {}
 
 const projects = [{
-  title:"return",
-  group:"Conrad & Kjell",
-  content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  title: '(Un)mapping the (In)visible [Conrad & Kjell]',
+  content: 'The Global Positioning System (GPS), an initiative of the American Department of Defense, is a technology that uses 24 satellites which circle the earth to determine a location. There are thousands of applications for GPS systems, ranging from everything to helping hikers navigate in remote areas, to assisting farmers with precisely seeding their fields, to the navigation of drones to a defined target. The use of tracking technologies enables us to leverage space, place, time and geography from the received data in order to create meaning from information that has a geospatial component. In this workshop we will track and trace humans, animals, machines, packages or vehicles using locative technology. The retrieved datasets will be variously analysed, interpreted or narrated in form of an experimental website. The Global Positioning System (GPS), an initiative of the American Department of Defense, is a technology that uses 24 satellites which circle the earth to determine a location. There are thousands of applications for GPS systems, ranging from everything to helping hikers navigate in remote areas, to assisting farmers with precisely seeding their fields, to the navigation of drones to a defined target. The use of tracking technologies enables us to leverage space, place, time and geography from the received data in order to create meaning from information that has a geospatial component. In this workshop we will track and trace humans, animals, machines, packages or vehicles using locative technology. The retrieved datasets will be variously analysed, interpreted or narrated in form of an experimental website.',
 },{
-  title:"",
-  group:"",
-  content:"",
+  title:'',
+  content:'',
 },{
-  title:"",
-  group:"",
-  content:"",
+  title:'',
+  content:'',
 }]
 
 async function updateData () {
@@ -28,7 +25,7 @@ async function getData () {
 }
 
 function placeUi () {
-  const maps = [...document.querySelectorAll('.map')]
+  const maps = [...document.querySelectorAll('section')]
 
   maps.forEach((map) => {
     const popUp = document.createElement('div')
@@ -45,28 +42,30 @@ function placeUi () {
 }
 
 function placeContent () {
-  const popUp = [...document.querySelectorAll('.pop-up')]
+  const popUps = [...document.querySelectorAll('.pop-up')]
 
-  popUp.forEach((popUp,index) => {
-
+  popUps.forEach((popUp, index) => {
     const project = projects[index]
 
-    Object.keys(project).forEach(function(key) {
-      console.log(key, project[key])
+    Object.keys(project).forEach((key) => {
       const add = document.createElement('div')
       add.className = key
       add.innerHTML = project[key]
       popUp.appendChild(add)
-    });
+    })
   })
 }
 
 function placeMap (id, again) {
   if (!again) {
+    const section = document.createElement('section')
+    section.id = `section-${id}`
+    document.querySelector('main').appendChild(section)
+
     const div = document.createElement('div')
     div.id = `map-${id}`
     div.className = 'map'
-    document.querySelector('main').appendChild(div)
+    section.appendChild(div)
   
     const position = data.devices[id].routes[0]
   
