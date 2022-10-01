@@ -47,6 +47,8 @@ button {
   height: 100%;
   z-index: 99998;
   background: blue;
+  font-size: medium;
+  color:white;
 }
 
 .pop-up.open {

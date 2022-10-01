@@ -1,6 +1,20 @@
 let data = {}
 let maps = {}
 
+const projects = [{
+  title:"return",
+  group:"Conrad & Kjell",
+  content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+},{
+  title:"",
+  group:"",
+  content:"",
+},{
+  title:"",
+  group:"",
+  content:"",
+}]
+
 async function updateData () {
   const newData = await getData()
   data = newData
@@ -27,6 +41,23 @@ function placeUi () {
 
     map.appendChild(button)
     map.appendChild(popUp)
+  })
+}
+
+function placeContent () {
+  const popUp = [...document.querySelectorAll('.pop-up')]
+
+  popUp.forEach((popUp,index) => {
+
+    const project = projects[index]
+
+    Object.keys(project).forEach(function(key) {
+      console.log(key, project[key])
+      const add = document.createElement('div')
+      add.className = key
+      add.innerHTML = project[key]
+      popUp.appendChild(add)
+    });
   })
 }
 
@@ -73,6 +104,7 @@ async function init () {
   await updateData()
   placeMaps()
   placeUi()
+  placeContent()
 
   setInterval(async () => {
     await updateData()
