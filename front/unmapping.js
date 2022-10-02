@@ -2,10 +2,10 @@ let data = {}
 let maps = {}
 
 const projects = [{
-  title: 'Lieferando/Gorillas (names?)',
+  title: 'Lieferando/Gorillas',
   content: 'add your content',
 },{
-  title:'Unknown destination/Chain Letter (names?)',
+  title:'Unknown destination/Chain Letter',
   content:'add your content',
 },{
   title:'Water/Trash',

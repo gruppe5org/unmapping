@@ -33,12 +33,11 @@ section {
 
 button {
   position: absolute;
-  bottom: 0.25em;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 6em;
+  left: 1em;
   z-index: 99999;
-  width: 3em;
-  height: 1.5em;
+  width: 2em;
+  height: 2em;
   background: white;
   border: 0;
   border-radius: 100px;
@@ -80,6 +79,7 @@ button {
   grid-row: 2;
   color: white;
   background: blue;
+  overflow-y: auto;
 }
 
 .title {
