@@ -69,6 +69,10 @@ button {
   overflow-y: auto;
 }
 
+.pop-up .title p {
+  margin: 0;
+}
+
 .pop-up p {
   padding: 0 1em;
 }
