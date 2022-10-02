@@ -2,14 +2,14 @@ let data = {}
 let maps = {}
 
 const projects = [{
-  title: '(Un)mapping the (In)visible [Conrad & Kjell]',
-  content: 'The Global Positioning System (GPS), an initiative of the American Department of Defense, is a technology that uses 24 satellites which circle the earth to determine a location. There are thousands of applications for GPS systems, ranging from everything to helping hikers navigate in remote areas, to assisting farmers with precisely seeding their fields, to the navigation of drones to a defined target. The use of tracking technologies enables us to leverage space, place, time and geography from the received data in order to create meaning from information that has a geospatial component. In this workshop we will track and trace humans, animals, machines, packages or vehicles using locative technology. The retrieved datasets will be variously analysed, interpreted or narrated in form of an experimental website. The Global Positioning System (GPS), an initiative of the American Department of Defense, is a technology that uses 24 satellites which circle the earth to determine a location. There are thousands of applications for GPS systems, ranging from everything to helping hikers navigate in remote areas, to assisting farmers with precisely seeding their fields, to the navigation of drones to a defined target. The use of tracking technologies enables us to leverage space, place, time and geography from the received data in order to create meaning from information that has a geospatial component. In this workshop we will track and trace humans, animals, machines, packages or vehicles using locative technology. The retrieved datasets will be variously analysed, interpreted or narrated in form of an experimental website.',
+  title: 'Lieferando/Gorillas (names?)',
+  content: 'add your content',
 },{
-  title:'',
-  content:'',
+  title:'Unknown destination/Chain Letter (names?)',
+  content:'add your content',
 },{
-  title:'',
-  content:'',
+  title:'Water/Trash',
+  content:'add your content',
 }]
 
 async function updateData () {
@@ -88,7 +88,7 @@ function placeMap (id, again) {
       color: index === 0 ? 'red' : 'blue',
       fillColor: index === 0 ? 'red' : 'blue',
       fillOpacity: 1,
-      radius: index === 0 ? 10 : 1
+      radius: index === 0 ? 5 : 1,
     }).addTo(maps[id].circle)
   })
   maps[id].map.addLayer(maps[id].circle)
