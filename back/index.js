@@ -9,14 +9,14 @@ const state = {
   devices: {}
 }
 
-const devices = [{
-  url: 'https://www.finder-portal.com/viewmode_101893_c9d7a52741ca2d8c413b5f8406ab844656a2a153.html',
+const devices = [ {
+  url: 'https://www.finder-portal.com/viewmode_1137497_ef6d30b1c9f33531e43967250f0a751f92e9d5ee.html',
   dropoff: 1
 }, {
-  url: 'https://www.finder-portal.com/viewmode_158656_35389e7d8b92ad447d45b5e2bafca0acf41dbb3f.html',
+  url: 'https://www.finder-portal.com/viewmode_1137501_e1f4dfa55f274080743b6c7092c7bf7feaa83622.html',
   dropoff: 1
-}, {
-  url: 'https://www.finder-portal.com/viewmode_159742_34a6ced3c7054db5e903cfffb1a48c1cf482e0a7.html',
+},{
+  url: 'https://www.finder-portal.com/viewmode_1137502_d5968f18d8b264cc4a1b7d61dc07f58118da3f08.html',
   dropoff: 1
 }]
 
@@ -53,6 +53,7 @@ async function getAllRoutes(id, cookie) {
   })
 
   const json = await response.json()
+  console.log(json)
   return json[id]
 }
 
@@ -70,7 +71,7 @@ async function fetchDevices () {
     }
 
     devices[id].routes = routes
-      .filter((point, i) => i % 6 === 0)
+      //.filter((point, i) => i % 6 === 0)
       .slice(0, -device.dropoff)
     console.log(id, devices[id].routes.length)
     return devices
