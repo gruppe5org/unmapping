@@ -71,7 +71,7 @@ function placeMap (id, again) {
   
     maps[id] = {}
     maps[id].map = L.map(`map-${id}`).setView([position.lat, position.lng], 18)
-    L.tileLayer('https://mt0.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}', {
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
         attribution: ''
     }).addTo(maps[id].map)
   } else {
