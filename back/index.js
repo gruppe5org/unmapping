@@ -11,13 +11,13 @@ const state = {
 
 const devices = [ {
   url: 'https://www.finder-portal.com/viewmode_1137497_ef6d30b1c9f33531e43967250f0a751f92e9d5ee.html',
-  dropoff: 1
+  dropoff: 50
 }, {
   url: 'https://www.finder-portal.com/viewmode_1137501_e1f4dfa55f274080743b6c7092c7bf7feaa83622.html',
-  dropoff: 1
+  dropoff: 120
 },{
   url: 'https://www.finder-portal.com/viewmode_1137502_d5968f18d8b264cc4a1b7d61dc07f58118da3f08.html',
-  dropoff: 1
+  dropoff: 100
 }]
 
 const app = express()
@@ -53,7 +53,6 @@ async function getAllRoutes(id, cookie) {
   })
 
   const json = await response.json()
-  console.log(json)
   return json[id]
 }
 
@@ -74,9 +73,6 @@ async function fetchDevices () {
       //.filter((point, i) => i % 6 === 0)
       .slice(0, -device.dropoff)
     console.log(id, devices[id].routes.length)
-    return devices
-  
-    devices[id].routes = routes
     return devices
   }, {})
 
