@@ -89,7 +89,27 @@ function placeMap (id, again) {
       fillColor: index === 0 ? 'red' : 'blue',
       fillOpacity: 1,
       radius: index === 0 ? 5 : 1,
-    }).addTo(maps[id].circle)
+    })
+      .addTo(maps[id].circle)
+      .bindPopup(
+        `<p>Lat: <strong>${Number(point.lat).toFixed(
+          6
+        )}</strong></p><p>Lng: <strong>${Number(point.lng).toFixed(
+          6
+        )}</strong></p><p>Speed: <strong>${
+          point.speed
+        }</strong></p><p>Timestamp: <strong>${new Date(
+          point.dateunix * 1000
+        ).toLocaleDateString('de-DE', {
+          year: 'numeric',
+          month: 'numeric',
+          day: 'numeric',
+          hour: 'numeric',
+          minute: 'numeric'
+        })}</strong></p><p>Maps: <strong><a href="https://maps.google.com/?q=${
+          point.lat
+        },${point.lng}" target="_blank">maps.google.com</a></strong></p>`
+      )
   })
   maps[id].map.addLayer(maps[id].circle)
 }

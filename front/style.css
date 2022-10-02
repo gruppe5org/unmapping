@@ -82,7 +82,6 @@ button {
   background: blue;
 }
 
-
 .title {
   margin: 0 0 0.5em 0;
   font-weight: bold;
@@ -90,4 +89,8 @@ button {
 
 .sub-title {
   margin: 0 0 0.3em 0;
+}
+
+.leaflet-popup-content p {
+  margin: 0 !important;
 }
