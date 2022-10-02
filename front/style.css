@@ -25,7 +25,7 @@ main {
   grid-template-columns: repeat(2, 1fr);
 }
 
-section {
+section, .description {
   position: relative;
   width: 50vw;
   height: 50vh;
@@ -93,4 +93,13 @@ button {
 
 .leaflet-popup-content p {
   margin: 0 !important;
+}
+
+@media (hover: none) {
+  button {
+    top: 10em;
+    left: 1em;
+    width: 3em;
+    height: 3em;
+  }
 }
