@@ -16,6 +16,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+p {
+  margin: 0 0 1em 0;
+}
+
 main {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -68,4 +72,12 @@ button {
 .pop-up .title {
   margin: 0 0 0.5em 0;
   font-weight: bold;
+}
+
+.description {
+  padding: 1em;
+  grid-column: 2;
+  grid-row: 2;
+  color: white;
+  background: blue;
 }
