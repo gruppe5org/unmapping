@@ -16,7 +16,7 @@ const devices = [ {
 }, {
   // 4208271007 GROUP 2 unknown destination
   url: 'https://www.finder-portal.com/viewmode_1137501_e1f4dfa55f274080743b6c7092c7bf7feaa83622.html',
-  dropoff: 120
+  dropoff: 920
 },{
   // 4208275432 Group 3 water/trash
   url: 'https://www.finder-portal.com/viewmode_1137502_d5968f18d8b264cc4a1b7d61dc07f58118da3f08.html',
